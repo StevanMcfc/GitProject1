@@ -6,7 +6,19 @@ public class Kurs {
 
 	private String vrsta;
 	private GregorianCalendar datum;
+	private double vrednost;
 	
+	
+	
+	public double getVrednost() {
+		return vrednost;
+	}
+
+	public void setVrednost(double vrednost) {
+		if(vrednost<=0) throw new RuntimeException("Vrednost je manja od nule");
+		this.vrednost = vrednost;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

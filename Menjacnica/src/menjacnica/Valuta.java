@@ -59,11 +59,6 @@ public class Valuta {
 				return false;
 		} else if (!naziv.equals(other.naziv))
 			return false;
-		if (skracenica == null) {
-			if (other.skracenica != null)
-				return false;
-		} else if (!skracenica.equals(other.skracenica))
-			return false;
 		return true;
 	}
 
