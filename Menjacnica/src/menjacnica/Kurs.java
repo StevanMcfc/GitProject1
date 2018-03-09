@@ -8,8 +8,6 @@ public class Kurs {
 	private GregorianCalendar datum;
 	private double vrednost;
 	
-	
-	
 	public double getVrednost() {
 		return vrednost;
 	}
@@ -49,11 +47,6 @@ public class Kurs {
 			return false;
 		return true;
 	}
-	
-	@Override
-	public String toString() {
-		return "Kurs [vrsta=" + vrsta + ", datum=" + datum + "]";
-	}
 
 	public String getVrsta() {
 		return vrsta;
@@ -72,6 +65,12 @@ public class Kurs {
 		if(datum==null) throw new RuntimeException("Vrednost datuma je null");
 		this.datum = datum;
 	}
+
+	@Override
+	public String toString() {
+		return "Kurs [vrsta=" + vrsta + ", datum=" + datum + ", vrednost=" + vrednost + "]";
+	}
+	
 	
 	
 	

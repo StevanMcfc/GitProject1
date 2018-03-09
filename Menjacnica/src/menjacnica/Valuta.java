@@ -8,7 +8,6 @@ public class Valuta {
 	private String skracenica;
 	private LinkedList<Kurs> kursevi;
 	
-
 	public String getNaziv() {
 		return naziv;
 	}
