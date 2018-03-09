@@ -1,19 +1,20 @@
 package menjacnica;
 
+import java.util.LinkedList;
+
 public class Valuta {
 
 	private String naziv;
 	private String skracenica;
-	private double prodajniKurs;
-	private double srednjiKurs;
-	private double kupovniKurs;
+	private LinkedList<Kurs> kursevi;
 	
-	
+
 	public String getNaziv() {
 		return naziv;
 	}
 	
 	public void setNaziv(String naziv) {
+		if(naziv==null) throw new RuntimeException("Vrednost naziva je null vrednost");
 		this.naziv = naziv;
 	}
 	
@@ -22,46 +23,25 @@ public class Valuta {
 	}
 	
 	public void setSkracenica(String skracenica) {
+		if(skracenica==null) throw new RuntimeException("Vrednost skracenice je null vrednost");
 		this.skracenica = skracenica;
 	}
-	
-	public double getProdajniKurs() {
-		return prodajniKurs;
+
+	public LinkedList<Kurs> getKursevi() {
+		return kursevi;
 	}
-	
-	public void setProdajniKurs(double prodajniKurs) {
-		this.prodajniKurs = prodajniKurs;
-	}
-	
-	public double getSrednjiKurs() {
-		return srednjiKurs;
-	}
-	
-	public void setSrednjiKurs(double srednjiKurs) {
-		this.srednjiKurs = srednjiKurs;
-	}
-	
-	public double getKupovniKurs() {
-		return kupovniKurs;
-	}
-	
-	public void setKupovniKurs(double kupovniKurs) {
-		this.kupovniKurs = kupovniKurs;
+
+	public void setKursevi(LinkedList<Kurs> kursevi) {
+		if(kursevi==null) throw new RuntimeException("Vrednost liste je null");
+		this.kursevi = kursevi;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		long temp;
-		temp = Double.doubleToLongBits(kupovniKurs);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((naziv == null) ? 0 : naziv.hashCode());
-		temp = Double.doubleToLongBits(prodajniKurs);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((skracenica == null) ? 0 : skracenica.hashCode());
-		temp = Double.doubleToLongBits(srednjiKurs);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
 
@@ -74,30 +54,31 @@ public class Valuta {
 		if (!(obj instanceof Valuta))
 			return false;
 		Valuta other = (Valuta) obj;
-		if (Double.doubleToLongBits(kupovniKurs) != Double.doubleToLongBits(other.kupovniKurs))
-			return false;
 		if (naziv == null) {
 			if (other.naziv != null)
 				return false;
 		} else if (!naziv.equals(other.naziv))
-			return false;
-		if (Double.doubleToLongBits(prodajniKurs) != Double.doubleToLongBits(other.prodajniKurs))
 			return false;
 		if (skracenica == null) {
 			if (other.skracenica != null)
 				return false;
 		} else if (!skracenica.equals(other.skracenica))
 			return false;
-		if (Double.doubleToLongBits(srednjiKurs) != Double.doubleToLongBits(other.srednjiKurs))
-			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Valuta\n [Naziv = " + naziv + "\nSkracenica = " + skracenica + "\nProdajni kurs = " + prodajniKurs
-				+ "\nSrednji kurs = " + srednjiKurs + "\nKupovni kurs = " + kupovniKurs + "]";
+		return "Valuta [naziv=" + naziv + ", skracenica=" + skracenica + "]";
 	}
+	
+	
+
+	
+	
+	
+
+	
 	
 	
 	
